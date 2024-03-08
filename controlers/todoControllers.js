@@ -4,7 +4,11 @@ import User from '../modals/todoModels.js';
 export async function createUser(req, res) {
     try {
         const newUser = await User.create(req.body);
-        res.status(201).json(newUser);
+        res.status(201).json({
+            success:true,
+            data:newUser,
+            message:'Data Succesfully Entered'
+        });
 
     } catch (error) {
         console.error(error);
@@ -17,3 +21,5 @@ export async function createUser(req, res) {
 
     }
 }
+
+
